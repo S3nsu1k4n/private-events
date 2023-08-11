@@ -1,24 +1,11 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small ruby on rails project to work with [ActiveRecord's associations](https://guides.rubyonrails.org/association_basics.html). Intermediate topics about relationships of rails's ORM ActiveRecord.
 
-Things you may want to cover:
+[Rails project: Private Events](https://www.theodinproject.com/lessons/ruby-on-rails-private-events)
 
-* Ruby version
+* Ruby 3.2.2
 
-* System dependencies
+* Using: devise + responders gem for authentication and authorization
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database: Postgres
