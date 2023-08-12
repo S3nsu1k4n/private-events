@@ -1,8 +1,24 @@
 <h1>User #<%= @user.id %></h1>
 
+<ul>
+  <li><%= link_to 'Back', root_path %></li>
+</ul>
+
+
+<h2>Created Events</h2>
 <div>
 <% @user.created_events.each do |event| %>
-  <div>event.location</div>
-  <div>event.date</div>
+  <div><strong><%= event.name %></strong></div>
+  <div><%= event.location %></div>
+  <div><%= event.date %></div>
+<% end %>
+</div>
+
+<h2>Attended Events</h2>
+<div>
+<% @user.attended_events.each do |event| %>
+  <div><strong><%= event.name %></strong></div>
+  <div><%= event.location %></div>
+  <div><%= event.date %></div>
 <% end %>
 </div>

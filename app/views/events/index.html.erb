@@ -7,6 +7,7 @@
 </div>
 
 <ul>
+  <li><%= link_to 'Profile', current_user %></li>
   <li><%= link_to 'Create new event', new_event_path %></li>
   <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
 </ul>
@@ -18,5 +19,6 @@
     <div>Where? <%= e.location %></div>
     <div>When? <%= e.date%></div>
     <div><%= e.attendees.count %> attendees</div>
+    <div><%= link_to 'Attend', new_event_event_attendee_path(e.id) %></div>
   <% end %>
 </div>
