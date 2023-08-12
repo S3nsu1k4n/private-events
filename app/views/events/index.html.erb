@@ -21,6 +21,13 @@
     <div>When? <%= e.date%></div>
     <div><%= e.attendees.count %> attendees</div>
     <div><%= link_to 'Attend', new_event_event_attendee_path(e.id) %></div>
+    <% event_attendee = EventAttendee.find_by(event_attendee_id: current_user.id, attended_event_id: e.id) %>
+    <% unless event_attendee.nil? %>
+      <div><%= link_to 'Unattend', event_event_attendee_path(e.id, event_attendee.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'
+      } %></div>
+    <% end %>
   <% end %>
   <h3>Upcoming</h3>
   <% @event.upcoming.each do |e| %>
@@ -30,6 +37,13 @@
     <div>When? <%= e.date%></div>
     <div><%= e.attendees.count %> attendees</div>
     <div><%= link_to 'Attend', new_event_event_attendee_path(e.id) %></div>
+    <% event_attendee = EventAttendee.find_by(event_attendee_id: current_user.id, attended_event_id: e.id) %>
+    <% unless event_attendee.nil? %>
+      <div><%= link_to 'Unattend', event_event_attendee_path(e.id, event_attendee.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'
+      } %></div>
+    <% end %>
   <% end %>
   <h3>Past</h3>
   <% @event.past.each do |e| %>
