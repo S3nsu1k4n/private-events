@@ -13,12 +13,30 @@
 </ul>
 
 <div>
-  <% @event.each do |e| %>
+  <h3>Today</h3>
+  <% @event.today.each do |e| %>
     <div><strong>Created by User #<%= e.creator.id %></strong></div>
     <div><%= e.name %></div>
     <div>Where? <%= e.location %></div>
     <div>When? <%= e.date%></div>
     <div><%= e.attendees.count %> attendees</div>
     <div><%= link_to 'Attend', new_event_event_attendee_path(e.id) %></div>
+  <% end %>
+  <h3>Upcoming</h3>
+  <% @event.upcoming.each do |e| %>
+    <div><strong>Created by User #<%= e.creator.id %></strong></div>
+    <div><%= e.name %></div>
+    <div>Where? <%= e.location %></div>
+    <div>When? <%= e.date%></div>
+    <div><%= e.attendees.count %> attendees</div>
+    <div><%= link_to 'Attend', new_event_event_attendee_path(e.id) %></div>
+  <% end %>
+  <h3>Past</h3>
+  <% @event.past.each do |e| %>
+    <div><strong>Created by User #<%= e.creator.id %></strong></div>
+    <div><%= e.name %></div>
+    <div>Where? <%= e.location %></div>
+    <div>When? <%= e.date%></div>
+    <div><%= e.attendees.count %> attendees</div>
   <% end %>
 </div>
