@@ -5,4 +5,9 @@ class Event < ApplicationRecord
 
   validates :name, :location, :date, presence: true
   validates :name, :location, length: { in: 5..64 }
+
+  scope :today, -> { where(date: :today?) }
+  scope :past, -> { where('date < ?', Date.today) }
+  scope :upcoming, -> { where('date > ?', Date.today) }
+
 end
