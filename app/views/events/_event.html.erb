@@ -1,0 +1,8 @@
+<div>
+  <% event.each do |e| %>
+    <div><strong>Created by User #<%= e.creator.id %></strong></div>
+    <div><%= e.name %></div>
+    <div>Where? <%= e.location %></div>
+    <div>When? <%= e.date%></div>
+  <% end %>
+</div>
