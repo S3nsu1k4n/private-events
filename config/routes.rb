@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'event_attendees/new'
-  get 'event_attendees/create'
   devise_for :users
   resources :users, only: [:show]
-  resources :events, only: [:index, :new, :create]
+  resources :events, only: [:index, :new, :create] do
+    resources :event_attendees, only: [:new, :create]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

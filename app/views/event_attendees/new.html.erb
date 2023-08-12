@@ -1,2 +1,11 @@
-<h1>EventAttendees#new</h1>
-<p>Find me in app/views/event_attendees/new.html.erb</p>
+<h1>Attend Event</h1>
+
+<ul>
+  <li><%= link_to 'Back', root_path %></li>
+</ul>
+
+<div>
+  <%= form_with model: @event_attendee, url: event_event_attendees_path do |form| %>
+    <%= form.submit 'Attend' %>
+  <% end %>
+</div>
