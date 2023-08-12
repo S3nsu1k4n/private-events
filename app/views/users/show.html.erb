@@ -11,6 +11,11 @@
   <div><strong><%= event.name %></strong></div>
   <div><%= event.location %></div>
   <div><%= event.date %></div>
+  <div><%= link_to 'Edit', edit_event_path(event.id) %></div>
+  <div><%= link_to 'Delete', event_path(event.id), data: {
+        turbo_method: :delete,
+        turbo_confirm: 'Are you sure?'
+      } %></div>
 <% end %>
 </div>
 

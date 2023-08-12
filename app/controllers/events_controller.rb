@@ -26,14 +26,21 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update(event_params)
-      redirect_to root_path
+      redirect_to User.find(@event.creator_id)
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    @event = find_event_by_id
+    @creator = User.find(@event.creator_id)
+    @event.destroy
+    redirect_to @creator, status: :see_other
+  end
 
+  def find_event_by_id
+    Event.find(params[:id])
   end
 
   private
