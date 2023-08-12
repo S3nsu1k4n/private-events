@@ -1,0 +1,36 @@
+<ul>
+  <li><%= link_to 'Back', root_path %></li>
+</ul>
+<% flash.each do |type, msg| %>
+  <div><%= msg %></div>
+<% end %>
+
+<div>
+  <%= form_with model: event do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+      <% event.errors.full_messages_for(:name).each do |msg| %>
+        <div style="color: red"><%= msg %></div>
+      <% end %>
+    </div>
+    <div>
+    <div>
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+      <% event.errors.full_messages_for(:location).each do |msg| %>
+        <div style="color: red"><%= msg %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.label :date %>
+      <%= form.date_field :date %>
+      <% event.errors.full_messages_for(:date).each do |msg| %>
+        <div style="color: red"><%= msg %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.submit 'Submit' %>
+    </div>
+  <% end %>
+</div>
