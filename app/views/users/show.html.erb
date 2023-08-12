@@ -15,10 +15,25 @@
 </div>
 
 <h2>Attended Events</h2>
+
 <div>
-<% @user.attended_events.each do |event| %>
-  <div><strong><%= event.name %></strong></div>
-  <div><%= event.location %></div>
-  <div><%= event.date %></div>
+<% event = @user.attended_events.order(date: :desc) %>
+<h3>Today</h3>
+<% event.select { |e| e.date.today? }.each do |event_today| %>
+  <div><strong><%= event_today.name %></strong></div>
+  <div><%= event_today.location %></div>
+  <div><%= event_today.date %></div>
+<% end %>
+<h3>Future Events</h3>
+<% event.select { |e| e.date.future? }.each do |event_today| %>
+  <div><strong><%= event_today.name %></strong></div>
+  <div><%= event_today.location %></div>
+  <div><%= event_today.date %></div>
+<% end %>
+<h3>Past Events</h3>
+<% event.select { |e| e.date.past? }.each do |event_today| %>
+  <div><strong><%= event_today.name %></strong></div>
+  <div><%= event_today.location %></div>
+  <div><%= event_today.date %></div>
 <% end %>
 </div>
